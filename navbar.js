@@ -79,7 +79,7 @@
  *
  * @api public
  *
- * @param {null} no properties.
+ * @param {nil} no properties.
  *
  * @returns JavaScript Extension (JSX) code representing the current state of the component.
  *

@@ -47,7 +47,7 @@
  *
  *  Date:         By-Group:   Rev:     Description:
  *
- *  02-Jun-2022   TJM-MCODE  {0001}    New module implementing the Bad Bank Create Account.
+ *  02-Jun-2022   TJM-MCODE  {0001}    New module implementing the Bad Bank Account Login.
  *
  *
  */
@@ -62,34 +62,13 @@
 
 // #region  C O N S T A N T S
 
-const MIN_VALUE = 1;
-const MAX_VALUE = 999;
-const COMPONENT_TYPE = 'Example';
-
 // #endregion
 
 // #region  P R I V A T E   F I E L D S
 
-var field1 = 0.00;
-var field2 = '';
-
 // #endregion
 
 // #region  E N U M E R A T I O N S
-
-/**
- * @enum namedEnum1 - a description of this enum, its use, and meaning.
- */
-const namedEnum1 = Object.freeze
-    ({
-        name1: 0,
-        name2: 1,
-        name3: 2,
-        name4: 3,
-        name5: 4,
-        name6: 5,
-        name7: 6
-    });
 
 // #endregion
 
@@ -100,7 +79,7 @@ const namedEnum1 = Object.freeze
  *
  * @api public
  *
- * @param {null} no properties.
+ * @param {nil} no properties.
  *
  * @returns JavaScript Extension (JSX) code representing the current state of the component.
  *
@@ -116,6 +95,7 @@ function Login()
     // initialize STATE and define acessors...
 
     // access CONTEXT for reference...
+    const ctx = React.useContext(UserContext);
 
     // #region  P R I V A T E   F U N C T I O N S
 
