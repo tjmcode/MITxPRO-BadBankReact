@@ -74,7 +74,7 @@ This is an unsupported demonstation project.
 
 Contributors names and contact info
 
-* Dr. Sanchez (MIT) [@Unknown](https://twitter.com/Unknown)
+* Dr. Abel Sanchez (MIT) [@Unknown](https://twitter.com/Unknown)
 
 * Timothy J McGuire [@TimothyMcGuire](https://twitter.com/TimothyMcGuire)
 

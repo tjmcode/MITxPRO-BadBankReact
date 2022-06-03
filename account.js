@@ -154,9 +154,10 @@ function Account()
 
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
+
         <Card
             bgcolor="primary"
-            header="Create Account"
+            header="Account"
             status={status}
             body={show ? (
                 <>
@@ -166,7 +167,7 @@ function Account()
                     <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)} /><br />
                     Password<br />
                     <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)} /><br />
-                    <button type="submit" className="btn btn-light" onClick={handleCreate_Click}>Create Account</button>
+                    <button type="submit" className="btn btn-light" onClick={handleCreate_Click}>Create</button>
                 </>
             ) : (
                 <>

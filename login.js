@@ -113,7 +113,7 @@ function Login()
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
         <>
-            <h1>Login JSX Code</h1>
+            <h5>Login JSX Code</h5>
         </>
     );
 }
