@@ -84,7 +84,7 @@ const UserContext = React.createContext(null);
 // #region  C O M P O N E N T – P U B L I C
 
 /**
- * Card() – creates Context and returns the App 'Card'.
+ * Card() – a common App 'Card' definitions for all derived Components.
  *
  * @api public
  *
@@ -101,12 +101,16 @@ function Card(props)
 {
     // valid PROPS input(s)
 
-    // initialize STATE and define acessors...
+    // initialize STATE and define accessors...
 
     // access CONTEXT for reference...
 
     // #region  P R I V A T E   F U N C T I O N S
-    function classes()
+
+    /*
+     * bootstrapCard() - builds a Bootstrap Card Class name from passed properties.
+     */
+    function bootstrapCard()
     {
         const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
         const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-white';
@@ -126,14 +130,17 @@ function Card(props)
 
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
-        <div className={classes()} style={{maxWidth: "18rem"}}>
+        <div className={bootstrapCard()} style={{maxWidth: "18rem"}}>
+
             <div className="card-header">{props.header}</div>
+
             <div className="card-body">
                 {props.title && (<h5 className="card-title">{props.title}</h5>)}
                 {props.text && (<p className="card-text">{props.text}</p>)}
                 {props.body}
                 {props.status && (<div id='createStatus'>{props.status}</div>)}
             </div>
+
         </div>
     );
 }

@@ -92,7 +92,7 @@ function NavBar()
 {
     // valid PROPS input(s)
 
-    // initialize STATE and define acessors...
+    // initialize STATE and define accessors...
 
     // valid CONTEXT if required
 

@@ -92,7 +92,7 @@ function SPA()
 {
     // valid PROPS input(s)
 
-    // initialize STATE and define acessors...
+    // initialize STATE and define accessors...
 
     // access CONTEXT for reference...
 
@@ -112,8 +112,19 @@ function SPA()
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
         <HashRouter>
+
             <NavBar />
-            <UserContext.Provider value={{users: [{name: 'abel', email: 'abel@mit.edu', password: 'secret', balance: 100}]}}>
+
+            <UserContext.Provider value={{
+                users:
+                    [{name: 'Dr. Abel Sanchex', email: 'abel@mit.edu', password: 'secret0', balance: 100},
+                    {name: 'Timothy J McGuire', email: 'tmcguire@mcode.com', password: 'secret1', balance: 1000000},
+                    {name: 'Catherine M McGuire', email: 'cmcguire@mcode.com', password: 'secret2', balance: 1000},
+                    {name: 'Adam C McGuire', email: 'amcguire@mcode.com', password: 'secret3', balance: 1111},
+                    {name: 'Nikki K. Medlyn', email: 'nmcguire@mcode.com', password: 'secret4', balance: 2222},
+                    {name: 'Laura M. McGuire', email: 'lmcguire@mcode.com', password: 'secret5', balance: 3333}]
+            }}>
+
                 <div className="container" style={{padding: "20px"}}>
                     <Route path="/" exact component={Home} />
                     <Route path="/account/" component={Account} />
@@ -123,7 +134,9 @@ function SPA()
                     <Route path="/balance/" component={Balance} />
                     <Route path="/alldata/" component={AllData} />
                 </div>
+
             </UserContext.Provider>
+
         </HashRouter>
     );
 }

@@ -92,12 +92,30 @@ function AllData()
 {
     // valid PROPS input(s)
 
-    // initialize STATE and define acessors...
+    // initialize STATE and define accessors...
 
     // access CONTEXT for reference...
     const ctx = React.useContext(UserContext);
 
     // #region  P R I V A T E   F U N C T I O N S
+    const buildContextList = () =>
+    {
+        const accountArray = [];
+
+        for (var i in ctx)
+        {
+            for (var j in ctx[i])
+            {
+                if (ctx[i][j])
+                {
+                    // pick up the Users array, skipping "users" tag (which is not an array)
+                    accountArray.push(<li className="list-group-item">{simplifyText(JSON.stringify(ctx[i][j]))}</li>);
+                }
+            }
+        }
+
+        return accountArray;
+    };
 
     // #endregion
 
@@ -112,10 +130,10 @@ function AllData()
 
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
-        <>
-            <h5>All Data in React Context</h5>
-            {JSON.stringify(ctx)}<br />
-        </>
+        <ul className="list-group">
+            <li className="list-group-item active">App Context (Accounts)</li>
+            {buildContextList()}
+        </ul>
     );
 }
 
