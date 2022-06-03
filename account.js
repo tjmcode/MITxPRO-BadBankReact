@@ -4,7 +4,7 @@
 // #region  D O C U M E N T A T I O N
 /*
  *      Title:    MicroCODE Bad Bank React Account
- *      Module:   Modules (./createAccount.js)
+ *      Module:   Modules (./account.js)
  *      Project:  MicroCODE Bad Bank React App
  *      Customer: Internal
  *      Creator:  MicroCODE Incorporated

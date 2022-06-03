@@ -27,6 +27,7 @@ It was bascially rewritten from scratch in React Components.
 * Use "npm install" to load a simple HTTP Server for the project
 ```
 npm install -- global http-server
+npx http-server
 ```
 
 * Use "http-server" command in the project folder to start the HTTP Server with *no caching*.
