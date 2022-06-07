@@ -98,7 +98,9 @@ function AllData()
     const ctx = React.useContext(UserContext);
 
     // #region  P R I V A T E   F U N C T I O N S
-    const buildContextList = () =>
+
+    // Build an HTML List of all our User Accounts
+    const buildAccountList = () =>
     {
         const accountArray = [];
 
@@ -106,6 +108,7 @@ function AllData()
         {
             for (var j in ctx[i])
             {
+                // the only embedded array is our User Accounts
                 if (ctx[i][j])
                 {
                     // pick up the Users array, skipping "users" tag (which is not an array)
@@ -116,6 +119,7 @@ function AllData()
 
         return accountArray;
     };
+
 
     // #endregion
 
@@ -131,8 +135,10 @@ function AllData()
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (
         <ul className="list-group">
+            {/* the first list item is a simple blue header (by marking 'active') */}
             <li className="list-group-item active">App Context (Accounts)</li>
-            {buildContextList()}
+            {/* the rest of the list is build from the Account array held within our Context */}
+            {buildAccountList()}
         </ul>
     );
 }
