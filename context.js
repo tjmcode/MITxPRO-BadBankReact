@@ -63,6 +63,9 @@
 
 // #region  C O N S T A N T S
 
+const TIMEOUT_MSEC = 3000;
+const MINIMUM_OPENING_DEPOSIT = 100;
+
 // App routing control...
 const Route = ReactRouterDOM.Route;
 const Link = ReactRouterDOM.Link;
@@ -127,6 +130,121 @@ function Card(props)
     // #endregion
 
     // perform component COMPUTATION to generate output
+
+    // OUTPUT the Component's JavaScript Extension (JSX) code...
+    return (
+        <div className={bootstrapCard()} style={{maxWidth: "18rem"}}>
+
+            <div className="card-header">{props.header}</div>
+
+            <div className="card-body">
+                {props.title && (<h5 className="card-title">{props.title}</h5>)}
+                {props.text && (<p className="card-text">{props.text}</p>)}
+                {props.body}
+                {props.status && (<div id='createStatus'>{props.status}</div>)}
+            </div>
+
+        </div>
+    );
+}
+
+/**
+ * BankCard() – a common App 'Bank Card' that can handle all the functions of our 'Bad Bank'.
+ *
+ * Every 'BankCard' is made up of a combination of these fields:
+ *
+ *      o Username
+ *      o Email
+ *      o Password
+ *      o Deposit Amount
+ *      o Withdraw Amount
+ *      o Balance Display
+ *      o Submit Button
+ *      o Result Display
+ *
+ * 'All Data' (Accounts Display) and 'About' are the only exceptions.
+ *
+ * @api public
+ *
+ * @param {type} props component properties.
+ *
+ * @returns JavaScript Extension (JSX) code representing the current state of the component.
+ *
+ * @example
+ *
+ *      BankCard(props);
+ *
+ */
+function BankCard(props)
+{
+    // initialize STATE and define accessors...
+    const [show, setShow] = React.useState(true);
+    const [status, setStatus] = React.useState('');
+
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [balance, setBalance] = React.useState(0);
+
+    // access CONTEXT for reference...
+    const ctx = React.useContext(UserContext);
+
+    // validate PROPS input(s)
+    console.log(name, email, password);
+    if (!validate(name, 'name')) return;
+    if (!validate(email, 'email')) return;
+    if (!validate(password, 'password')) return;
+    if (!validate(balance, 'balance')) return;
+    if (balance < MINIMUM_OPENING_DEPOSIT) return;
+    ctx.users.push({name, email, password, balance});
+    setShow(false);
+
+    // #region  P R I V A T E   F U N C T I O N S
+
+    /*
+     * bootstrapCard() - builds a Bootstrap Card Class name from passed properties.
+     */
+    function bootstrapCard(error)
+    {
+        if (error)
+        {
+            const bg = ' bg-warning';  // yellow alert, can't access account
+        }
+        else
+        {
+            const bg = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
+        }
+        const txt = props.txtcolor ? ' text-' + props.txtcolor : ' text-white';
+        return 'card mb-3 ' + bg + txt;
+    };
+
+    // #endregion
+
+    // #region  E V E N T   H A N D L E R S
+    /*
+     * *_Click() - 'on click' event handlers for UI elements.
+     */
+
+    // #endregion
+
+    // perform component COMPUTATION to generate output
+    if (!ctx.UserLogged)
+    {
+        return (
+            <div className={bootstrapCard()} style={{maxWidth: "18rem"}}>
+
+                <div className="card-header">{props.header}</div>
+
+                <div className="card-body">
+                    {props.title && (<h5 className="card-title">{props.title}</h5>)}
+                    {props.text && (<p className="card-text">{props.text}</p>)}
+                    {props.body}
+                    {props.status && (<div id='createStatus'>{props.status}</div>)}
+                </div>
+
+            </div>
+        );
+    }
 
     // OUTPUT the Component's JavaScript Extension (JSX) code...
     return (

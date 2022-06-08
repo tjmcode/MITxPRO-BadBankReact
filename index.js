@@ -117,7 +117,7 @@ function SPA()
 
             <UserContext.Provider value={{
                 users:
-                    [{name: 'Dr. Abel Sanchex', email: 'abel@mit.edu', password: 'secret0', balance: 100},
+                    [{name: 'Dr. Abel Sanchez', email: 'abel@mit.edu', password: 'secret0', balance: 100},
                     {name: 'Timothy J McGuire', email: 'tmcguire@mcode.com', password: 'secret1', balance: 1000000},
                     {name: 'Catherine M McGuire', email: 'cmcguire@mcode.com', password: 'secret2', balance: 1000},
                     {name: 'Adam C McGuire', email: 'amcguire@mcode.com', password: 'secret3', balance: 1111},

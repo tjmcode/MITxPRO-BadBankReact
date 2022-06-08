@@ -98,7 +98,7 @@ function Account()
     // valid PROPS input(s)
 
     // initialize STATE and define accessors...
-    const [show, setShow] = React.useState(true);
+    const [input, setInput] = React.useState(true);
     const [status, setStatus] = React.useState('');
 
     const [name, setName] = React.useState('');
@@ -140,7 +140,7 @@ function Account()
         if (!validate(balance, 'balance')) return;
         if (balance < MINIMUM_OPENING_DEPOSIT) return;
         ctx.users.push({name, email, password, balance});
-        setShow(false);
+        setInput(false);
     }
 
     // clears the UI fields for Account creation unconditionally
@@ -150,7 +150,7 @@ function Account()
         setEmail('');
         setPassword('');
         setBalance(0);
-        setShow(true);
+        setInput(true);
     }
 
     // #endregion
@@ -164,7 +164,7 @@ function Account()
             bgcolor="primary"
             header="Account"
             status={status}
-            body={show ? (
+            body={input ? (
                 <>
                     Name<br />
                     <input type="input" className="form-control" id="name" placeholder="Enter name" value={name} onChange={e => setName(e.currentTarget.value)} /><br />
